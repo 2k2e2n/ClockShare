@@ -1,13 +1,21 @@
+import type { Metadata } from 'next'
 import Image from "next/image";
-import Link from "next/link";
+import { io } from 'socket.io-client';
 
-export default function Home() {
+export const metadata:Metadata = {
+  title: 'HELLO NEXT.JS'
+}
+
+export default function Page() {
   return (
     <div>
-        <p>ハロー React!!</p>
-        <h1>helloworld</h1>
-        <Link href="/Test">GotoTestPage</Link>
-    </div>
+        <h1>HelloNext.js</h1>
 
+        <h1>Socket.io Ping-Pong</h1>
+            <button id="pingButton">Send Ping</button>
+            <ul id="messages"></ul>
+
+
+    </div>
   );
 }
