@@ -8,4 +8,6 @@ const nextConfig = {
     basePath: prefixPath,
 };
 
+
+
 export default nextConfig;
