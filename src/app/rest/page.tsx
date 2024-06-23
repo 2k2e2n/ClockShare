@@ -6,8 +6,8 @@ import { useRouter } from "next/navigation";
 
 export default function Page() {
     // tsを書く欄
-    let [timeSec, setTimeSec] = useState(30);
-    let lasttimeSec: number = 30;
+    let [timeSec, setTimeSec] = useState(5);
+    let lasttimeSec: number = 5;
     //timeSec=>時間を管理する変数
     //setTimeSec=>時間を毎秒更新するための変数
 
@@ -15,12 +15,13 @@ export default function Page() {
         //最初のみ実行
         console.log("loaded!");
         setTimeSec(lasttimeSec);     //カウントダウンの時間
-        const intervalId = window.setInterval(countup, 1000);  //１秒に１回のみ実行
+        const intervalId = window.setInterval(countdown, 1000);  //１秒に１回のみ実行
         return () => clearInterval(intervalId);  // クリーンアップ
     }, []);
 
-    function countup() {
-        //１秒づつカウントアップ
+    function countdown() {
+
+        //１秒づつカウントダウン
         setTimeSec((prevTimeSec) => {
             if(prevTimeSec <= 0) {
                 return prevTimeSec = 0;
@@ -28,8 +29,8 @@ export default function Page() {
                 console.log('time:' + (prevTimeSec - 1));
                 return prevTimeSec - 1;
             }
-
         });
+
     }
 
 
@@ -41,7 +42,7 @@ export default function Page() {
 
     return (
         <div>
-            <h1>ここはSTOPページです！！！</h1>
+            <h1>ここはRESTです！！！</h1>
             <h1>{timeSec}</h1>
             <button  onClick={() =>{resumebtn('../countup')}}>RESUME</button>
         </div>
