@@ -3,6 +3,8 @@ import type { Metadata } from 'next'
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
+
+
 export const metadata:Metadata = {
   title: '404-not found'
 }
