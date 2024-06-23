@@ -1,7 +1,7 @@
 'use client';
-import { useEffect, useState} from 'react';
-import { useRouter } from "next/navigation";
-import NextLink from 'next/link'
+import { useEffect, useState } from 'react';
+
+
 
 export default function Page() {
     // tsを書く欄
@@ -25,20 +25,14 @@ export default function Page() {
         });
     }
 
-/********************* */
+    function stopbtn() {
 
-
-const router = useRouter();
-function handler() {
-    router.push('./stop');
-}
-
+    }
 
     return (
         <div>
-            <h1>{timeSec}</h1>
-        <NextLink href="/stop">ページ遷移</NextLink>
-        <button onClick={()=>handler()}>STOP</button>
+            <h1>ここはSTOPページです！！！</h1>
+            <button  onClick={() =>{stopbtn()}}>STOP</button>
         </div>
     );
 }
