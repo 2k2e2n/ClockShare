@@ -10,6 +10,7 @@ export const metadata:Metadata = {
 }
 
 export default function Page() {
+    const dir = String(process.env.BACKEND_URL);    //本番環境で画像を読み込めるようにする
 
     //ジャンプ
     const router = useRouter();
@@ -25,7 +26,7 @@ export default function Page() {
 
         <button  onClick={() =>{resumebtn('./top')}}>ホームに戻る</button>
          <Image
-            src="/Image1.jpg"
+            src={dir+"/Image1.jpg"}
             height={271 *1.5}
             width={480 *1.5}
             alt="image"
