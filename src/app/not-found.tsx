@@ -11,7 +11,7 @@ export const metadata:Metadata = {
 
 export default function Page() {
     const dir = String(process.env.BACKEND_URL);    //本番環境で画像を読み込めるようにする
-
+    console.log("dir:",{dir});
     //ジャンプ
     const router = useRouter();
     function resumebtn(link: string) {
