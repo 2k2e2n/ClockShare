@@ -23,7 +23,7 @@ export default function Page() {
         <h1>404 not found</h1>
         <h1>ページが見つかりません</h1>
 
-        <button  onClick={() =>{resumebtn('../')}}>ホームに戻る</button>
+        <button  onClick={() =>{resumebtn('./top')}}>ホームに戻る</button>
          <Image
             src="/Image1.jpg"
             height={271 *1.5}
