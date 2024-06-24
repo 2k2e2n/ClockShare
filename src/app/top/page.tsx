@@ -11,7 +11,6 @@
 'use client';
 import { useEffect, useState} from 'react';
 import { useRouter } from "next/navigation";
-import NextLink from 'next/link'
 
 export default function Page() {
     // tsを書く欄
@@ -23,18 +22,18 @@ export default function Page() {
         console.log("loaded!");
     }, []);
 
-//リンクのジャンプ
-const router = useRouter();
-function handler1(link: string) {
-    router.push(link);
-}
+    //リンクのジャンプ
+    const router = useRouter();
+    function handler1(link: string) {
+        router.push(link);
+    }
 
-function handler2(link: string) {
-    try{
-        localStorage.removeItem('time');
-    } catch(err) {}
-    router.push(link);
-}
+    function handler2(link: string) {
+        try{
+            localStorage.removeItem('time');
+        } catch(err) {}
+        router.push(link);
+    }
 
 
     return (
