@@ -35,7 +35,7 @@ function handler(link: string) {
         <div>
             <h1>ここはcountupです！</h1>
             <h1>{timeSec}</h1>
-        <button onClick={()=>handler('./stop')}>STOP</button>
+        <button onClick={()=>handler('./app/stop')}>STOP</button>
         <button onClick={()=>handler('./rest')}>REST</button>
         <button onClick={()=>handler('../')}>END</button>
         </div>
