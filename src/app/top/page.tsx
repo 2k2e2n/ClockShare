@@ -39,7 +39,8 @@ function handler2(link: string) {
 
     return (
         <div>
-            <h1>これはHOMEPAGEです！</h1>
+            <h1>HOMEPAGE！</h1>
+            <p>タイマーを開始するには下のボタンを押してください</p>
         <button onClick={()=>handler1('./top/countup/')}>START</button>
         <button onClick={()=>handler2('./top/countup/')}>Reset and START</button>
         </div>

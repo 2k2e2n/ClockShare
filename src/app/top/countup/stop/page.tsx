@@ -12,23 +12,21 @@ import { useEffect, useState } from 'react';
 import { useRouter } from "next/navigation";
 
 
-
 export default function Page() {
     // tsを書く欄
-    let [time, settime] = useState(30);
+    let [time, settime] = useState(30);          //タイマー
     let [timeS, settimeS] = useState<number>(0); //秒
     let [timeM, settimeM] = useState<number>(0); //分
     let [timeH, settimeH] = useState<number>(0); //時
-    //timeSec=>時間を管理する変数
-    //setTimeSec=>時間を毎秒更新するための変数
 
+
+    //最初のみ実行
     useEffect(() => {
-        //最初のみ実行
-        console.log("loaded!");
-        settime(Number(getlocalKey('time')));
-        settimeS(Number(getlocalKey('time')) % 60);
-        settimeM(Math.floor(Number(getlocalKey('time')) / 60) % 60);
-        settimeH(Math.floor(Number(getlocalKey('time')) / (60*60)) % 24);
+        let localKey : number = Number(getlocalKey('time'));
+        settime(localKey);
+        settimeS(localKey % 60);
+        settimeM(Math.floor(localKey / 60) % 60);
+        settimeH(Math.floor(localKey / (60*60)) % 24);
     }, []);
 
     //0:4:20->00:04:20  桁数をあわせる

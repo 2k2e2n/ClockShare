@@ -14,7 +14,6 @@ import { useRouter } from "next/navigation";
 
 
 export default function Page() {
-    // tsを書く欄
     let [timeSec, setTimeSec] = useState(0);
     let lasttimeSec: number = 30;
     //timeSec=>時間を管理する変数
@@ -42,8 +41,7 @@ export default function Page() {
 
     }
 
-
-    //ジャンプ
+    //URLにジャンプ
     const router = useRouter();
     function resumebtn(link: string) {
         router.push(link);
