@@ -53,7 +53,7 @@ function handler(link: string) {
             <h1>{`${padTime(timeH)}:${padTime(timeM)}:${padTime(timeS)}`}</h1>
         <button onClick={()=>handler('./countup/stop')}>STOP</button>
         <button onClick={()=>handler('./countup/rest')}>REST</button>
-        <button onClick={()=>handler('../')}>END</button>
+        <button onClick={()=>handler('./top')}>END</button>
         <NextLink href=".//">../TOPPAGE</NextLink>
         </div>
     );
