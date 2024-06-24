@@ -3,5 +3,8 @@
 @tailwind components;
 @tailwind utilities;
 */
-
 /* ここにtailwindを使用してスタイルを記述する*/
+
+/*全体に適用したいcssを記述*/
+:root {
+}

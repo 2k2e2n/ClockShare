@@ -40,6 +40,7 @@ export default function Page() {
         <div>
             <h1>HOMEPAGE！</h1>
             <p>タイマーを開始するには下のボタンを押してください</p>
+            <div className="w-10 bg-red-100">こんにちは</div>
         <button onClick={()=>handler1('./top/countup/')}>START</button>
         <button onClick={()=>handler2('./top/countup/')}>Reset and START</button>
         </div>
