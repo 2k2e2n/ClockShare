@@ -74,12 +74,12 @@ export default function Page() {
     }
     return (
         <div>
-            <h1>top/countup</h1>
+            <h1 className="text-6xl ...">top/countup</h1>
             <h1>タイマー</h1>
-            <h1>{`${padTime(timeH)}:${padTime(timeM)}:${padTime(timeS)}`}</h1>
-        <button onClick={()=>handler('./countup/stop')}>STOP</button>
-        <button onClick={()=>handler('./countup/rest')}>REST</button>
-        <button onClick={()=>handler('../')}>END</button>
+            <h1 className="text-4xl ...">{`${padTime(timeH)}:${padTime(timeM)}:${padTime(timeS)}`}</h1>
+        <button onClick={()=>handler('./countup/stop')} className="relative h-12 overflow-hidden rounded-md border border-neutral-200 bg-transparent px-6 text-neutral-950 before:absolute before:bottom-0 before:left-0 before:block before:h-full before:w-full before:translate-y-full before:bg-neutral-100 before:transition-transform hover:before:translate-y-0"><span className="relative">STOP</span></button>
+        <button onClick={()=>handler('./countup/rest')} className="relative h-12 overflow-hidden rounded-md border border-neutral-200 bg-transparent px-6 text-neutral-950 before:absolute before:bottom-0 before:left-0 before:block before:h-full before:w-full before:translate-y-full before:bg-neutral-100 before:transition-transform hover:before:translate-y-0"><span className="relative">REST</span></button>
+        <button onClick={()=>handler('../')} className="relative h-12 overflow-hidden rounded-md border border-neutral-200 bg-transparent px-6 text-neutral-950 before:absolute before:bottom-0 before:left-0 before:block before:h-full before:w-full before:translate-y-full before:bg-neutral-100 before:transition-transform hover:before:translate-y-0"><span className="relative">END</span></button>
         </div>
     );
 }

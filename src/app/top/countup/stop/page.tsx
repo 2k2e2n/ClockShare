@@ -64,10 +64,10 @@ export default function Page() {
 
     return (
         <div>
-            <h1>top/countup/stop</h1>
+            <h1 className="text-6xl ...">top/countup/stop</h1>
             <h1>タイマーストップ！</h1>
             <h1>TIME:{`${padTime(timeH)}:${padTime(timeM)}:${padTime(timeS)}`}</h1>
-            <button  onClick={() =>{resumebtn('../countup')}}>RESUME</button>
+            <button onClick={() =>{resumebtn('../countup')}} className="relative h-12 overflow-hidden rounded-md border border-neutral-200 bg-transparent px-6 text-neutral-950 before:absolute before:bottom-0 before:left-0 before:block before:h-full before:w-full before:translate-y-full before:bg-neutral-100 before:transition-transform hover:before:translate-y-0"><span className="relative">RESUME</span></button>
         </div>
     );
 }
