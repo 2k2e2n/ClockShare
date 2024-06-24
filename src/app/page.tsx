@@ -25,7 +25,6 @@ function handler(link: string) {
     return (
         <div>
             <h1>これはHOMEPAGEです！</h1>
-        <NextLink href="/stop">ページ遷移</NextLink>
         <button onClick={()=>handler('./countup')}>START</button>
         </div>
     );
