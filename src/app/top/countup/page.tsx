@@ -12,20 +12,39 @@ import NextLink from 'next/link'
 
 
 export default function Page() {
-    // tsを書く欄
-
     let [time, settime] = useState<number>(0);  //タイマー
     let [timeS, settimeS] = useState<number>(0); //秒
     let [timeM, settimeM] = useState<number>(0); //分
     let [timeH, settimeH] = useState<number>(0); //時
     const SecondTick: number = 1 * 1000;    //1 x 1000マイクロ秒
 
+
     useEffect(() => {
         //最初のみ実行
         console.log("loaded!");
+        settime(Number(getlocalKey('time')));    //キーを取得する
         const intervalId = window.setInterval(countup, SecondTick);  //１秒に１回のみ実行
         return () => clearInterval(intervalId);  // クリーンアップ
     }, []);
+
+    //キーの取得
+    function getlocalKey(key: string): string {
+        try {
+            const storageValue = localStorage.getItem(key);
+            if (storageValue) {
+                console.log('Key acquisition successful');
+                return storageValue;
+            } else {
+                console.warn('Failed to get key, setting to 0');
+                localStorage.setItem(key, "0");
+                return "0";
+            }
+        } catch (err) {
+            console.error(err);
+            localStorage.setItem(key, "0");
+            return "0";
+        }
+    }
 
 
     function countup() {
@@ -36,8 +55,11 @@ export default function Page() {
             settimeM(Math.floor(newTime / 60) % 60);
              settimeH(Math.floor(newTime / (60*60)) % 24);
             //console.warn({ timeH: Math.floor(newTime / (60*60)) % 24, timeM: Math.floor(newTime / 60) % 60, timeS: newTime % 60 });
+            localStorage.setItem('time', String(time));
             return newTime;
         });
+
+
     }
 
     //0:4:20->00:04:20  桁数をあわせる
@@ -45,14 +67,11 @@ export default function Page() {
         return value.toString().padStart(2, '0');
     }
 
-
-/********************* */
-
-//リンクのジャンプ
-const router = useRouter();
-function handler(link: string) {
-    router.push(link);
-}
+    //リンクのジャンプ
+    const router = useRouter();
+    function handler(link: string) {
+        router.push(link);
+    }
     return (
         <div>
             <h1>top/countup</h1>
@@ -61,7 +80,6 @@ function handler(link: string) {
         <button onClick={()=>handler('./countup/stop')}>STOP</button>
         <button onClick={()=>handler('./countup/rest')}>REST</button>
         <button onClick={()=>handler('../')}>END</button>
-        <NextLink href="./">../TOPPAGE</NextLink>
         </div>
     );
 }

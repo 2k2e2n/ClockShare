@@ -25,7 +25,14 @@ export default function Page() {
 
 //リンクのジャンプ
 const router = useRouter();
-function handler(link: string) {
+function handler1(link: string) {
+    router.push(link);
+}
+
+function handler2(link: string) {
+    try{
+        localStorage.removeItem('time');
+    } catch(err) {}
     router.push(link);
 }
 
@@ -33,7 +40,8 @@ function handler(link: string) {
     return (
         <div>
             <h1>これはHOMEPAGEです！</h1>
-        <button onClick={()=>handler('./top/countup/')}>START</button>
+        <button onClick={()=>handler1('./top/countup/')}>START</button>
+        <button onClick={()=>handler2('./top/countup/')}>Reset and START</button>
         </div>
     );
 }
