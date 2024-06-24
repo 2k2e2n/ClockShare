@@ -53,7 +53,7 @@ export default function Page() {
             const newTime = time + 1;
             settimeS(newTime % 60);
             settimeM(Math.floor(newTime / 60) % 60);
-             settimeH(Math.floor(newTime / (60*60)) % 24);
+            settimeH(Math.floor(newTime / (60*60)) % 24);
             //console.warn({ timeH: Math.floor(newTime / (60*60)) % 24, timeM: Math.floor(newTime / 60) % 60, timeS: newTime % 60 });
             localStorage.setItem('time', String(time));
             return newTime;
