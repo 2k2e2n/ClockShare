@@ -11,7 +11,6 @@ export default function Page() {
     useEffect(() => {
         //最初のみ実行
         console.log("loaded!");
-        handler('./top')
     }, []);
 
 /********************* */
@@ -25,8 +24,8 @@ function handler(link: string) {
 
     return (
         <div>
-            <h1>Loading...</h1>
-        <button onClick={()=>handler('./top')}>START</button>
+            <h1>これはHOMEPAGEです！</h1>
+        <button onClick={()=>handler('./countup')}>START</button>
         </div>
     );
 }

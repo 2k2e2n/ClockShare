@@ -1,3 +1,5 @@
+
+
 const isProd = process.env.NODE_ENV === 'production'
 const prefixPath = !isProd ? '/sub-derectory' : ''
 
@@ -6,7 +8,5 @@ const nextConfig = {
     reactStrictMode: false,
 
 };
-
-
 
 export default nextConfig;
