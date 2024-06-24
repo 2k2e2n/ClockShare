@@ -73,13 +73,23 @@ export default function Page() {
         router.push(link);
     }
     return (
-        <div>
+        <div >
             <h1 className="text-6xl ...">top/countup</h1>
             <h1>タイマー</h1>
-            <h1 className="text-4xl ...">{`${padTime(timeH)}:${padTime(timeM)}:${padTime(timeS)}`}</h1>
-        <button onClick={()=>handler('./countup/stop')} className="relative h-12 overflow-hidden rounded-md border border-neutral-200 bg-transparent px-6 text-neutral-950 before:absolute before:bottom-0 before:left-0 before:block before:h-full before:w-full before:translate-y-full before:bg-neutral-100 before:transition-transform hover:before:translate-y-0"><span className="relative">STOP</span></button>
-        <button onClick={()=>handler('./countup/rest')} className="relative h-12 overflow-hidden rounded-md border border-neutral-200 bg-transparent px-6 text-neutral-950 before:absolute before:bottom-0 before:left-0 before:block before:h-full before:w-full before:translate-y-full before:bg-neutral-100 before:transition-transform hover:before:translate-y-0"><span className="relative">REST</span></button>
-        <button onClick={()=>handler('../')} className="relative h-12 overflow-hidden rounded-md border border-neutral-200 bg-transparent px-6 text-neutral-950 before:absolute before:bottom-0 before:left-0 before:block before:h-full before:w-full before:translate-y-full before:bg-neutral-100 before:transition-transform hover:before:translate-y-0"><span className="relative">END</span></button>
+            <h1 className="text-9xl w-100 h-20 flex items-center justify-center">
+                {`${padTime(timeH)}:${padTime(timeM)}:${padTime(timeS)}`}
+            </h1>
+            <div className="flex justify-center items-center gap-16 pt-16 mr-32 ml-32">
+                <button onClick={()=>handler('./countup/stop')} className="flex-auto bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+                    STOP
+                </button>
+                <button onClick={()=>handler('./countup/rest')} className="flex-auto bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+                    REST
+                </button>
+                <button onClick={()=>handler('../')} className="flex-auto bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+                    END
+                </button>
+            </div>
         </div>
     );
 }
