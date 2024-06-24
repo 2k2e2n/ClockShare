@@ -1,3 +1,12 @@
+/*
+  #####   ######    #####   ######
+ ##   ##  # ## #   ##   ##   ##  ##
+ #          ##     ##   ##   ##  ##
+  #####     ##     ##   ##   #####
+      ##    ##     ##   ##   ##
+ ##   ##    ##     ##   ##   ##
+  #####    ####     #####   ####
+*/
 'use client';
 import { useEffect, useState } from 'react';
 import { useRouter } from "next/navigation";
@@ -41,7 +50,8 @@ export default function Page() {
 
     return (
         <div>
-            <h1>ここはSTOPページです！！！</h1>
+            <h1>top/countup/stop</h1>
+            <h1>タイマーストップ！</h1>
             <h1>{timeSec}</h1>
             <button  onClick={() =>{resumebtn('../countup')}}>RESUME</button>
         </div>

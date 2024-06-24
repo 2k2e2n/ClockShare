@@ -1,3 +1,12 @@
+/*
+######   #######   #####   ########
+ ##  ##   ##  ##  ##   ##  ## ## ##
+ ##  ##   ##      ##          ##
+ #####    ####     #####      ##
+ ##  ##   ##           ##     ##
+ ##  ##   ##  ##  ##   ##     ##
+#### ### #######   #####     ####
+*/
 'use client';
 import { useEffect, useState } from 'react';
 import { useRouter } from "next/navigation";
@@ -6,8 +15,8 @@ import { useRouter } from "next/navigation";
 
 export default function Page() {
     // tsを書く欄
-    let [timeSec, setTimeSec] = useState(5);
-    let lasttimeSec: number = 5;
+    let [timeSec, setTimeSec] = useState(0);
+    let lasttimeSec: number = 30;
     //timeSec=>時間を管理する変数
     //setTimeSec=>時間を毎秒更新するための変数
 
@@ -42,7 +51,8 @@ export default function Page() {
 
     return (
         <div>
-            <h1>ここはRESTです！！！</h1>
+            <h1>top/countup/rest</h1>
+            <h1>休憩時間です！</h1>
             <h1>{timeSec}</h1>
             <button  onClick={() =>{resumebtn('../countup')}}>RESUME</button>
         </div>

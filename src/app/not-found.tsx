@@ -10,8 +10,7 @@ export const metadata:Metadata = {
 }
 
 export default function Page() {
-    const dir = String("/ClockShare");    //本番環境で画像を読み込めるようにする
-    console.log("dir:",{dir});
+    const dir = String("/ClockShare");    //本番環境で画像を読み込めるようにする。テスト環境では変数を（””）にするように
     //ジャンプ
     const router = useRouter();
     function resumebtn(link: string) {
@@ -24,7 +23,7 @@ export default function Page() {
         <h1>404 not found</h1>
         <h1>ページが見つかりません</h1>
 
-        <button  onClick={() =>{resumebtn('./top')}}>ホームに戻る</button>
+        <button  onClick={() =>{resumebtn('/top')}}>ホームに戻る</button>
          <Image
             src={dir+"/Image1.jpg"}
             height={271 *1.5}

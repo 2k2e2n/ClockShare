@@ -1,3 +1,13 @@
+/*
+ ##
+ ##
+ ##
+ ######    #####   ### ##    #####
+ ##   ##  ##   ##  ## # ##  ##   ##
+ ##   ##  ##   ##  ## # ##  #######
+ ##   ##  ##   ##  ## # ##  ##
+ ##   ##   #####   ##   ##   #####
+*/
 'use client';
 import { useEffect, useState} from 'react';
 import { useRouter } from "next/navigation";
@@ -13,8 +23,6 @@ export default function Page() {
         console.log("loaded!");
     }, []);
 
-/********************* */
-
 //リンクのジャンプ
 const router = useRouter();
 function handler(link: string) {
@@ -25,7 +33,7 @@ function handler(link: string) {
     return (
         <div>
             <h1>これはHOMEPAGEです！</h1>
-        <button onClick={()=>handler('./countup')}>START</button>
+        <button onClick={()=>handler('./top/countup/')}>START</button>
         </div>
     );
 }

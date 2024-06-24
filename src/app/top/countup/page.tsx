@@ -1,8 +1,14 @@
+/*
+ ######   #####   ##   ##  ##   ##  #######
+###      ##   ##  ##   ##  ###  ##     ##
+##       ##   ##  ##   ##  ## # ##     ##
+###      ##   ##  ##   ##  ##  ###     ##
+ ######   #####    #####   ##   ##     ##
+*/
 'use client';
 import { useEffect, useState} from 'react';
 import { useRouter } from "next/navigation";
 import NextLink from 'next/link'
-import React from 'react';
 
 
 export default function Page() {
@@ -49,12 +55,13 @@ function handler(link: string) {
 }
     return (
         <div>
-            <h1>ここはcountupです！</h1>
+            <h1>top/countup</h1>
+            <h1>タイマー</h1>
             <h1>{`${padTime(timeH)}:${padTime(timeM)}:${padTime(timeS)}`}</h1>
         <button onClick={()=>handler('./countup/stop')}>STOP</button>
         <button onClick={()=>handler('./countup/rest')}>REST</button>
-        <button onClick={()=>handler("../")}>END</button>
-        <NextLink href="../">../TOPPAGE</NextLink>
+        <button onClick={()=>handler('../')}>END</button>
+        <NextLink href="./">../TOPPAGE</NextLink>
         </div>
     );
 }
