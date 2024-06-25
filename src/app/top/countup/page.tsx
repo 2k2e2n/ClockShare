@@ -86,7 +86,7 @@ export default function Page() {
                 <button onClick={()=>handler('./countup/rest')} className="defaultbtn">
                     REST
                 </button>
-                <button onClick={()=>handler('../')} className="defaultbtn">
+                <button onClick={()=>handler('../../top')} className="defaultbtn">
                     END
                 </button>
             </div>
