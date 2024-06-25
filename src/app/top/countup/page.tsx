@@ -8,11 +8,10 @@
 'use client';
 import { useEffect, useState} from 'react';
 import { useRouter } from "next/navigation";
-import NextLink from 'next/link'
-import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import Progress from 'react-circle-progress-bar'
-
+import {Flat, Heat, Nested} from '@alptugidin/react-circular-progress-bar'
+import Lottie from "lottie-react";
+import loadinganimation from "../../../../public/running-Anim2.json";
 
 
 export default function Page() {
@@ -86,27 +85,41 @@ export default function Page() {
             </h1>
 
 
+            <div className='flex justify-center'>
+                <Lottie  style={{ height:'100px', width: '100px'}} animationData={loadinganimation} loop={true}  autoplay={true} />
+            </div>
 
-
-            <div className="w-64 h-80 container mx-auto mt-8">
-            <Progress progress={75} />
-                <CircularProgressbar
-                value={timeS}
-                maxValue={60}
-                text={`${timeS}sec`}
-                    styles={buildStyles({
-                        rotation: 0,     //パスとトレイルの回転、回転数（0-1）
-                        strokeLinecap: 'round',      //端に丸い角を使用するか平らな角を使用するか - 「butt」または「round」を使用できます
-                        textSize: '16px',   // Text size
-                        pathTransitionDuration: 0.9,    // アニメーションが 1 つのパーセンテージから別のパーセンテージに変化するまでの時間 (秒単位)
-                        pathTransition: 'true',     //パス遷移をより詳細に指定したり、完全に削除したりすることができます
-                        //pathColor: `rgba(62, 152, 199, ${timeM / 100})`,
-                        pathColor: `#6fdaca`,   //円弧の色
-                        textColor: '#6e65a1',   //文字色
-                        trailColor: '#eee7dc',  //円の色
-                        backgroundColor: '#eee7dc',
-                })}
-            />
+            <div className="w-64 h-80 container mx-auto" >
+            
+                <Flat
+                progress={timeS}
+                range={{ from: 0, to: 60 }}
+                sign={{ value: 'sec', position: 'end' }}
+                text={'TIME'}
+                showMiniCircle={false}
+                showValue={true}
+                sx={{
+                    strokeColor: '#ff0000',
+                    barWidth: 5,
+                    bgStrokeColor: '#ffffff',
+                    bgColor: { value: '#ffffff', transparency: '20' },
+                    shape: 'full',
+                    strokeLinecap: 'round',
+                    valueSize: 16,  //textSize
+                    valueWeight: 'bold',
+                    valueColor: '#000000',
+                    valueFamily: 'Trebuchet MS',
+                    textSize: 13,
+                    textWeight: 'bold',
+                    textColor: '#000000',
+                    textFamily: 'Trebuchet MS',
+                    loadingTime: 500,
+                    miniCircleColor: '#ff0000',
+                    miniCircleSize: 5,
+                    valueAnimation: false,
+                    intersectionEnabled: true
+                }}
+                />
             </div>
 
             <div className="flex justify-center items-center gap-16 pt-16 mr-32 ml-32">
