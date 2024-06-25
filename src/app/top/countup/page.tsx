@@ -12,6 +12,9 @@ import 'react-circular-progressbar/dist/styles.css';
 import {Flat, Heat, Nested} from '@alptugidin/react-circular-progress-bar'
 import Lottie from "lottie-react";
 import loadinganimation from "../../../../public/running-Anim2.json";
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
+
 
 
 export default function Page() {
@@ -61,8 +64,6 @@ export default function Page() {
             localStorage.setItem('time', String(time));
             return newTime;
         });
-
-
     }
 
     //0:4:20->00:04:20  桁数をあわせる
@@ -76,8 +77,25 @@ export default function Page() {
         router.push(link);
     }
 
+    //トーストの表示
+    const toastnotify = () => toast('time:'+`${padTime(timeH)}:${padTime(timeM)}:${padTime(timeS)}`);
+
     return (
+        
         <div >
+        <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+        />
+
             <h1 className="text-6xl ...">top/countup</h1>
             <h1>タイマー</h1>
             <h1 className="text-9xl w-100 h-20 flex items-center justify-center">
@@ -123,6 +141,11 @@ export default function Page() {
             </div>
 
             <div className="flex justify-center items-center gap-16 pt-16 mr-32 ml-32">
+                <button onClick={toastnotify} className="defaultbtn">
+                    test toast
+                </button>
+
+
                 <button onClick={()=>handler('./countup/stop')} className="defaultbtn">
                     STOP
                 </button>
