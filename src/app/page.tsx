@@ -3,7 +3,7 @@ import { useEffect, useState, useRef } from 'react';
 import { useRouter } from "next/navigation";
 import NextLink from 'next/link';
 import Lottie from "lottie-react";
-import loadinganimation from "../../public/testanim2.json";
+import loadinganimation from "../../public/testAnim2.json";
 
 export default function Page() {
     // tsを書く欄
