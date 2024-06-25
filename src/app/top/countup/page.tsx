@@ -80,13 +80,13 @@ export default function Page() {
                 {`${padTime(timeH)}:${padTime(timeM)}:${padTime(timeS)}`}
             </h1>
             <div className="flex justify-center items-center gap-16 pt-16 mr-32 ml-32">
-                <button onClick={()=>handler('./countup/stop')} className="flex-auto bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+                <button onClick={()=>handler('./countup/stop')} className="defaultbtn">
                     STOP
                 </button>
-                <button onClick={()=>handler('./countup/rest')} className="flex-auto bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+                <button onClick={()=>handler('./countup/rest')} className="defaultbtn">
                     REST
                 </button>
-                <button onClick={()=>handler('../')} className="flex-auto bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+                <button onClick={()=>handler('../')} className="defaultbtn">
                     END
                 </button>
             </div>

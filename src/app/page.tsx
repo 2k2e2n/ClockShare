@@ -1,7 +1,9 @@
 'use client';
-import { useEffect, useState} from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useRouter } from "next/navigation";
-import NextLink from 'next/link'
+import NextLink from 'next/link';
+import Lottie from "lottie-react";
+import groovyWalkAnimation from "../../public/testanim.json";
 
 export default function Page() {
     // tsを書く欄
@@ -11,7 +13,7 @@ export default function Page() {
     useEffect(() => {
         //最初のみ実行
         console.log("loaded!");
-        handler('./top')
+        //handler('./top')
     }, []);
 
 /********************* */
@@ -19,14 +21,15 @@ export default function Page() {
 //リンクのジャンプ
 const router = useRouter();
 function handler(link: string) {
-    router.push(link);
+    router.push(link);    //ページを遷移
 }
 
 
     return (
         <div>
             <h1>Loading...</h1>
-        <button onClick={()=>handler('./top')}>START</button>
+        <button onClick={()=>handler('./top')} className="defaultbtn">gotohomepage</button>
+        <Lottie animationData={groovyWalkAnimation} loop={true} />
         </div>
     );
 }
