@@ -3,7 +3,7 @@ import { useEffect, useState, useRef } from 'react';
 import { useRouter } from "next/navigation";
 import NextLink from 'next/link';
 import Lottie from "lottie-react";
-import groovyWalkAnimation from "../../public/testanim.json";
+import loadinganimation from "../../public/testanim2.json";
 
 export default function Page() {
     // tsを書く欄
@@ -29,7 +29,7 @@ function handler(link: string) {
         <div>
             <h1>Loading...</h1>
         <button onClick={()=>handler('./top')} className="defaultbtn">gotohomepage</button>
-        <Lottie animationData={groovyWalkAnimation} loop={true} />
+        <Lottie animationData={loadinganimation} loop={true}  autoplay={true} />
         </div>
     );
 }
