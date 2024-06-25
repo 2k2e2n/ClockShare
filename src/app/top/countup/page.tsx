@@ -9,6 +9,10 @@
 import { useEffect, useState} from 'react';
 import { useRouter } from "next/navigation";
 import NextLink from 'next/link'
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
+import Progress from 'react-circle-progress-bar'
+
 
 
 export default function Page() {
@@ -72,6 +76,7 @@ export default function Page() {
     function handler(link: string) {
         router.push(link);
     }
+
     return (
         <div >
             <h1 className="text-6xl ...">top/countup</h1>
@@ -79,6 +84,31 @@ export default function Page() {
             <h1 className="text-9xl w-100 h-20 flex items-center justify-center">
                 {`${padTime(timeH)}:${padTime(timeM)}:${padTime(timeS)}`}
             </h1>
+
+
+
+
+            <div className="w-64 h-80 container mx-auto mt-8">
+            <Progress progress={75} />
+                <CircularProgressbar
+                value={timeS}
+                maxValue={60}
+                text={`${timeS}sec`}
+                    styles={buildStyles({
+                        rotation: 0,     //パスとトレイルの回転、回転数（0-1）
+                        strokeLinecap: 'round',      //端に丸い角を使用するか平らな角を使用するか - 「butt」または「round」を使用できます
+                        textSize: '16px',   // Text size
+                        pathTransitionDuration: 0.9,    // アニメーションが 1 つのパーセンテージから別のパーセンテージに変化するまでの時間 (秒単位)
+                        pathTransition: 'true',     //パス遷移をより詳細に指定したり、完全に削除したりすることができます
+                        //pathColor: `rgba(62, 152, 199, ${timeM / 100})`,
+                        pathColor: `#6fdaca`,   //円弧の色
+                        textColor: '#6e65a1',   //文字色
+                        trailColor: '#eee7dc',  //円の色
+                        backgroundColor: '#eee7dc',
+                })}
+            />
+            </div>
+
             <div className="flex justify-center items-center gap-16 pt-16 mr-32 ml-32">
                 <button onClick={()=>handler('./countup/stop')} className="defaultbtn">
                     STOP
