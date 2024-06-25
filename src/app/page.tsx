@@ -1,7 +1,6 @@
 'use client';
 import { useEffect, useState, useRef } from 'react';
 import { useRouter } from "next/navigation";
-import NextLink from 'next/link';
 import Lottie from "lottie-react";
 import loadinganimation from "../../public/testAnim2.json";
 
@@ -29,7 +28,9 @@ function handler(link: string) {
         <div>
             <h1>Loading...</h1>
         <button onClick={()=>handler('./top')} className="defaultbtn">gotohomepage</button>
-        <Lottie animationData={loadinganimation} loop={true}  autoplay={true} />
+        <div className="h-screen w-screen flex justify-center items-center">
+            <Lottie  style={{ height:'800px', width: '800px'}} animationData={loadinganimation} loop={true}  autoplay={true} />
+        </div>
         </div>
     );
 }
