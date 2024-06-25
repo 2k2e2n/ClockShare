@@ -1,8 +1,19 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 
-# ※This project is beta version
+# This project is beta version
 
+# ローカルで使用
+--- 
+```
+git clone https://github.com/2k2e2n/ClockShare.git
+
+npm i lottie-react
+
+npm run dev
+
+
+```
 
 
 
