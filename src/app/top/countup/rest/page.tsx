@@ -10,7 +10,8 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { useRouter } from "next/navigation";
-
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
 
 export default function Page() {
     let [time, settime] = useState(30);          //タイマー
@@ -18,7 +19,7 @@ export default function Page() {
     let [timeM, settimeM] = useState<number>(0); //分
     let [timeH, settimeH] = useState<number>(0); //時
 
-    let [resttime, setresttime] = useState(10);          //タイマー
+    let [resttime, setresttime] = useState<number>(10);  //タイマー
     let [resttimeS, setresttimeS] = useState<number>(0); //秒
     let [resttimeM, setresttimeM] = useState<number>(0); //分
     let [resttimeH, setresttimeH] = useState<number>(0); //時
@@ -31,13 +32,20 @@ export default function Page() {
         settimeH(Math.floor(localKey / (60*60)) % 24);
         const intervalId = window.setInterval(countdown, 1000);  //１秒に１回実行
         return () => clearInterval(intervalId);  // クリーンアップ
-    }, []);
 
+    }, []);
     function countdown() {
         setresttime((resttime) => {
             const newTime = resttime;
             if(resttime > 0) {
                 resttime = resttime - 1;
+                if(resttime == 1) {
+                    setTimeout(function() {
+                        toast(
+                            '休憩が終わりました！！！勉強しよう！'
+                        );
+                      }, 2000);
+                }
             } else {
                 resttime = 0;
             }
@@ -82,13 +90,29 @@ export default function Page() {
 
     return (
         <div>
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
+
             <h1 className="text-6xl">top/countup/rest</h1>
             <h1>休憩時間です！</h1>
-            <h1 className="text-4xl flex justify-center mt-4">{`${padTime(timeH)}:${padTime(timeM)}:${padTime(timeS)}`}</h1>
-            <h1 className="text-4xl flex justify-center mt-4">
-                {`${padTime(resttimeH)}:${padTime(resttimeM)}:${padTime(resttimeS)}`}
+            <h1 className="text-4xl flex justify-center mt-4">{`Time:${padTime(timeH)}:${padTime(timeM)}:${padTime(timeS)}`}</h1>
+            <h1 className="text-6xl flex justify-center mt-4">
+                {`Resttime:${padTime(resttimeH)}:${padTime(resttimeM)}:${padTime(resttimeS)}`}
             </h1>
+            <div className="flex justify-center items-center gap-16 pt-16 mr-32 ml-32">
             <button onClick={() =>{resumebtn('../countup')}} className="defaultbtn">RESUME</button>
+            </div>
+            
         </div>
     );
 }

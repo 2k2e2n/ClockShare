@@ -101,12 +101,9 @@ export default function Page() {
             <h1 className="text-9xl w-100 h-20 flex items-center justify-center">
                 {`${padTime(timeH)}:${padTime(timeM)}:${padTime(timeS)}`}
             </h1>
-
-
             <div className='flex justify-center'>
                 <Lottie  style={{ height:'100px', width: '100px'}} animationData={loadinganimation} loop={true}  autoplay={true} />
             </div>
-
             <div className="w-64 h-80 container mx-auto" >
 
                 <Flat
@@ -139,7 +136,6 @@ export default function Page() {
                 }}
                 />
             </div>
-
             <div className="flex justify-center items-center gap-16 pt-16 mr-32 ml-32">
                 <button onClick={toastnotify} className="defaultbtn">
                     test toast
