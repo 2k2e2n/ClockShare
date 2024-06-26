@@ -54,8 +54,6 @@ export default function Page() {
     }
 
 
-
-
     //リンクジャンプ
     const router = useRouter();
     function resumebtn(link: string) {
@@ -66,7 +64,9 @@ export default function Page() {
         <div>
             <h1 className="text-6xl ...">top/countup/stop</h1>
             <h1>タイマーストップ！</h1>
-            <h1>TIME:{`${padTime(timeH)}:${padTime(timeM)}:${padTime(timeS)}`}</h1>
+            <div className="text-6xl w-100 h-20 flex items-center justify-center">
+                <h1>TIME:{`${padTime(timeH)}:${padTime(timeM)}:${padTime(timeS)}`}</h1>
+            </div>
             <button onClick={() =>{resumebtn('../countup')}} className="defaultbtn"><span className="relative">RESUME</span></button>
         </div>
     );

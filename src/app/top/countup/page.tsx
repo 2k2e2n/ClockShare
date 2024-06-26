@@ -108,7 +108,7 @@ export default function Page() {
             </div>
 
             <div className="w-64 h-80 container mx-auto" >
-            
+
                 <Flat
                 progress={timeS}
                 range={{ from: 0, to: 60 }}
@@ -144,8 +144,6 @@ export default function Page() {
                 <button onClick={toastnotify} className="defaultbtn">
                     test toast
                 </button>
-
-
                 <button onClick={()=>handler('./countup/stop')} className="defaultbtn">
                     STOP
                 </button>
