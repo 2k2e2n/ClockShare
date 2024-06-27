@@ -22,14 +22,13 @@ export default function Page() {
     let [timeS, settimeS] = useState<number>(0); //秒
     let [timeM, settimeM] = useState<number>(0); //分
     let [timeH, settimeH] = useState<number>(0); //時
-    const SecondTick: number = 1 * 1000;    //1 x 1000マイクロ秒
 
 
     useEffect(() => {
         //最初のみ実行
         console.log("loaded!");
         settime(Number(getlocalKey('time')));    //キーを取得する
-        const intervalId = window.setInterval(countup, SecondTick);  //１秒に１回のみ実行
+        const intervalId = window.setInterval(countup, 1000);  //１秒に１回のみ実行
         return () => clearInterval(intervalId);  // クリーンアップ
     }, []);
 
