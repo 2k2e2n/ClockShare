@@ -95,47 +95,14 @@ export default function Page() {
             theme="light"
         />
 
-            <h1 className="text-6xl ...">top/countup</h1>
-            <h1>タイマー</h1>
-            <h1 className="text-9xl w-100 h-20 flex items-center justify-center">
+            <h1 className="text-6xl">top/countup</h1>
+            <h1 className="mt-8 text-9xl w-100 h-20 flex items-center justify-center">
                 {`${padTime(timeH)}:${padTime(timeM)}:${padTime(timeS)}`}
             </h1>
             <div className='flex justify-center'>
                 <Lottie  style={{ height:'100px', width: '100px'}} animationData={loadinganimation} loop={true}  autoplay={true} />
             </div>
-            <div className="w-64 h-80 container mx-auto" >
-
-                <Flat
-                progress={timeS}
-                range={{ from: 0, to: 60 }}
-                sign={{ value: 'sec', position: 'end' }}
-                text={'TIME'}
-                showMiniCircle={false}
-                showValue={true}
-                sx={{
-                    strokeColor: '#ff0000',
-                    barWidth: 5,
-                    bgStrokeColor: '#ffffff',
-                    bgColor: { value: '#ffffff', transparency: '20' },
-                    shape: 'full',
-                    strokeLinecap: 'round',
-                    valueSize: 16,  //textSize
-                    valueWeight: 'bold',
-                    valueColor: '#000000',
-                    valueFamily: 'Trebuchet MS',
-                    textSize: 13,
-                    textWeight: 'bold',
-                    textColor: '#000000',
-                    textFamily: 'Trebuchet MS',
-                    loadingTime: 500,
-                    miniCircleColor: '#ff0000',
-                    miniCircleSize: 5,
-                    valueAnimation: false,
-                    intersectionEnabled: true
-                }}
-                />
-            </div>
-            <div className="flex justify-center items-center gap-16 pt-16 mr-32 ml-32">
+            <div className="flex justify-center items-center gap-16 pt-4 mr-32 ml-32">
                 <button onClick={toastnotify} className="defaultbtn">
                     test toast
                 </button>
@@ -148,6 +115,11 @@ export default function Page() {
                 <button onClick={()=>handler('../top')} className="defaultbtn">
                     END
                 </button>
+            </div>
+            <div className='text-3xl pt-8'>
+                <div className='mt-4'>CPU1: 00:00:00</div>
+                <div className='mt-4'>CPU2: 00:00:00</div>
+                <div className='mt-4'>CPU3: 00:00:00</div>
             </div>
         </div>
     );
