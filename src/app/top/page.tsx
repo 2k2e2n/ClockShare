@@ -40,8 +40,11 @@ export default function Page() {
         <div>
             <h1 className="text-6xl ...">HOMEPAGE！</h1>
             <p>タイマーを開始するには下のボタンを押してください</p>
-        <button onClick={()=>handler1('./top/countup/')} className="defaultbtn"><span className="relative">START</span></button>
-        <button onClick={()=>handler2('./top/countup/')} className="defaultbtn"><span className="relative">Reset and START</span></button>
+            <div className="flex justify-center items-center gap-16 pt-4 mr-32 ml-32">
+            <button onClick={()=>handler1('./top/countup/')} className="defaultbtn"><span className="relative">START</span></button>
+            <button onClick={()=>handler2('./top/countup/')} className="defaultbtn"><span className="relative">Reset and START</span></button>
+            </div>
+
         </div>
     );
 }
