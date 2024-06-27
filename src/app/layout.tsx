@@ -22,8 +22,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja">
-      <body className={notoSansJP.className}>{children}</body>
+    <html lang="ja" >
+
+
+      
+
+      <body className={notoSansJP.className}>
+        <h1 className="bg-emerald-400 h-12">header</h1>
+        {children}
+        <h1 className="bg-sky-400 h-6">footer</h1>
+      </body>
     </html>
   );
 }
