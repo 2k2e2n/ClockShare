@@ -14,7 +14,7 @@ import Lottie from "lottie-react";
 import loadinganimation from "../../../../public/running-Anim2.json";
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
-
+import Clock from "../../../../components/Clock"
 
 
 export default function Page() {
@@ -93,6 +93,8 @@ export default function Page() {
             pauseOnHover
             theme="light"
         />
+
+            <Clock />
 
             <h1 className="text-6xl">top/countup</h1>
             <h1 className="mt-8 text-9xl w-100 h-20 flex items-center justify-center">
