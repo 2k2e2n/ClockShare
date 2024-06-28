@@ -94,12 +94,10 @@ export default function Page() {
             theme="light"
         />
 
-            <Clock />
+            <Clock time={time} />
 
-            <h1 className="text-6xl">top/countup</h1>
-            <h1 className="mt-8 text-9xl w-100 h-20 flex items-center justify-center">
-                {`${padTime(timeH)}:${padTime(timeM)}:${padTime(timeS)}`}
-            </h1>
+            <h1 className="text-6xl" >top/countup</h1>
+
             <div className='flex justify-center'>
                 <Lottie  style={{ height:'100px', width: '100px'}} animationData={loadinganimation} loop={true}  autoplay={true} />
             </div>
