@@ -27,7 +27,6 @@ const Clock: React.FC<Props>  = ({ time }) => {
             <div>
                 {`${padTime(timeH)}:${padTime(timeM)}:${padTime(timeS)}`}
             </div>
-            <div className="text-lg">HELLOWORLD</div>
         </div>
     );
 };

@@ -12,6 +12,9 @@ import { useEffect, useState } from 'react';
 import { useRouter } from "next/navigation";
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
+import Clock from '@/components/Clock';
+
+
 
 export default function Page() {
     let [time, settime] = useState(30);          //タイマー
@@ -105,7 +108,9 @@ export default function Page() {
 
             <h1 className="text-6xl">top/countup/rest</h1>
             <h1>休憩時間です！</h1>
-            <h1 className="text-4xl flex justify-center mt-4">{`Time:${padTime(timeH)}:${padTime(timeM)}:${padTime(timeS)}`}</h1>
+            <h1 className="text-4xl flex justify-center mt-4">
+               time: <Clock time={time} />
+            </h1>
             <h1 className="text-6xl flex justify-center mt-4">
                 {`Resttime:${padTime(resttimeH)}:${padTime(resttimeM)}:${padTime(resttimeS)}`}
             </h1>

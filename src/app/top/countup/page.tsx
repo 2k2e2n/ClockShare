@@ -68,11 +68,11 @@ export default function Page() {
 
     //トーストの表示
     const toastnotify = () => toast(
-        <Clock time={time}/>
+        <span>time:<Clock time={time}/></span>
     );
 
     return (
-        <div >
+        <div>
         <ToastContainer
             position="top-right"
             autoClose={5000}
@@ -85,10 +85,10 @@ export default function Page() {
             pauseOnHover
             theme="light"
         />
-            <div className="text-8x1 flex justify-center items-center gap-16 pt-4 mr-32 ml-32">
+
+            <h1 className="flex justify-center text-8xl" >
                 <Clock time={time} />
-            </div>
-            <h1 className="text-6xl" >top/countup</h1>
+            </h1>
 
             <div className='flex justify-center'>
                 <Lottie  style={{ height:'100px', width: '100px'}} animationData={loadinganimation} loop={true}  autoplay={true} />
