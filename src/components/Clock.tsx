@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
+
 type Props = {    //変数の型指定
     time: number;
 }
 
-const Clock: React.FC<Props>  = ({time}) => {
+const Clock: React.FC<Props>  = ({ time }) => {
 
     let [timeS, settimeS] = useState<number>(0); //秒
     let [timeM, settimeM] = useState<number>(0); //分
@@ -23,12 +24,10 @@ const Clock: React.FC<Props>  = ({time}) => {
 
     return (
         <div>
-            <h1>
-                This is Component {time}
-            </h1>
-            <h1 className="mt-8 text-9xl w-100 h-20 flex items-center justify-center">
+            <div>
                 {`${padTime(timeH)}:${padTime(timeM)}:${padTime(timeS)}`}
-            </h1>
+            </div>
+            <div className="text-lg">HELLOWORLD</div>
         </div>
     );
 };

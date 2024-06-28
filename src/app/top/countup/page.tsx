@@ -9,19 +9,16 @@
 import { useEffect, useState} from 'react';
 import { useRouter } from "next/navigation";
 import 'react-circular-progressbar/dist/styles.css';
-import {Flat, Heat, Nested} from '@alptugidin/react-circular-progress-bar'
 import Lottie from "lottie-react";
 import loadinganimation from "../../../../public/running-Anim2.json";
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
-import Clock from "../../../../components/Clock"
+import Clock from "../../../components/Clock"
 
 
 export default function Page() {
     let [time, settime] = useState<number>(0);  //タイマー
-    let [timeS, settimeS] = useState<number>(0); //秒
-    let [timeM, settimeM] = useState<number>(0); //分
-    let [timeH, settimeH] = useState<number>(0); //時
+
 
 
     useEffect(() => {
@@ -55,20 +52,13 @@ export default function Page() {
     function countup() {
         //１秒づつカウントアップ
         settime((time) => {
-            const newTime = time + 1;
-            settimeS(newTime % 60);
-            settimeM(Math.floor(newTime / 60) % 60);
-            settimeH(Math.floor(newTime / (60*60)) % 24);
-            //console.warn({ timeH: Math.floor(newTime / (60*60)) % 24, timeM: Math.floor(newTime / 60) % 60, timeS: newTime % 60 });
+            //const newTime = time + 1;
             localStorage.setItem('time', String(time));
-            return newTime;
+            return time = time + 1;
         });
     }
 
-    //0:4:20->00:04:20  桁数をあわせる
-    function padTime(value: number): string {
-        return value.toString().padStart(2, '0');
-    }
+
 
     //リンクのジャンプ
     const router = useRouter();
@@ -77,7 +67,9 @@ export default function Page() {
     }
 
     //トーストの表示
-    const toastnotify = () => toast('time:'+`${padTime(timeH)}:${padTime(timeM)}:${padTime(timeS)}`);
+    const toastnotify = () => toast(
+        <Clock time={time}/>
+    );
 
     return (
         <div >
@@ -93,9 +85,9 @@ export default function Page() {
             pauseOnHover
             theme="light"
         />
-
-            <Clock time={time} />
-
+            <div className="text-8x1 flex justify-center items-center gap-16 pt-4 mr-32 ml-32">
+                <Clock time={time} />
+            </div>
             <h1 className="text-6xl" >top/countup</h1>
 
             <div className='flex justify-center'>
