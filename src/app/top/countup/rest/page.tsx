@@ -31,40 +31,15 @@ export default function Page() {
 
     function countdown() {
         setresttime((resttime) => {
-            if(resttime <=  0) {
-                resttime = 0;
-            } if(resttime == 1) {
-                setTimeout(function() {
-                    toast(
-                        '休憩が終わりました！！！勉強しよう！'
-                    );
-                }, 2000);
-                
-            } else {
+            if(resttime > 0) {
                 resttime = resttime - 1;
-            } 
+                if(resttime == 1) {
+                    setTimeout(function() {
+                        toast('休憩が終わりました！！！勉強しよう！');
+                    }, 2000);}
+            } else { resttime = 0; }
             return resttime;
-        });
-
-
-
-    }
-    /*
-    const newTime = resttime;
-    if(resttime > 0) {
-        resttime = resttime - 1;
-        if(resttime == 1) {
-            setTimeout(function() {
-                toast(
-                    '休憩が終わりました！！！勉強しよう！'
-                );
-            }, 2000);
-        }
-    } else {
-        resttime = 0;
-    }
-    setresttime(resttime);
-*/
+        });}
 
     //今の時間の取得
     function getlocalKey(key: string): string {
