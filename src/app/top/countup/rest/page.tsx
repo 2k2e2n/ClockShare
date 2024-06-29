@@ -13,6 +13,7 @@ import { useRouter } from "next/navigation";
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 import Clock from '@/components/Clock';
+import Toast from '@/components/Toast';
 
 
 
@@ -41,6 +42,7 @@ export default function Page() {
             return resttime;
         });}
 
+
     //今の時間の取得
     function getlocalKey(key: string): string {
         try {
@@ -60,10 +62,6 @@ export default function Page() {
         }
     }
 
-    //0:4:20->00:04:20  桁数をあわせる
-    function padTime(value: number): string {
-        return value.toString().padStart(2, '0');
-    }
 
     //URLにジャンプ
     const router = useRouter();
@@ -73,18 +71,7 @@ export default function Page() {
 
     return (
         <div>
-            <ToastContainer
-                position="top-right"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="light"
-            />
+            <Toast />
 
             <h1 className="text-6xl">top/countup/rest</h1>
             <h1>休憩時間です！</h1>
@@ -98,7 +85,6 @@ export default function Page() {
             <button onClick={() =>{resumebtn('../countup')}} className="defaultbtn">RESUME</button>
 
             </div>
-            
         </div>
     );
 }

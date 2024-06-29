@@ -14,6 +14,7 @@ import loadinganimation from "../../../../public/running-Anim2.json";
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 import Clock from "../../../components/Clock"
+import Toast from '@/components/Toast';
 
 
 export default function Page() {
@@ -73,18 +74,7 @@ export default function Page() {
 
     return (
         <div>
-        <ToastContainer
-            position="top-right"
-            autoClose={5000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-            theme="light"
-        />
+            <Toast />
 
             <h1 className="flex justify-center text-8xl" >
                 <Clock time={time} />

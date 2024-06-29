@@ -24,6 +24,7 @@ export default function RootLayout({
   return (
     <html lang="ja" >
       <body className={notoSansJP.className}>
+
         <h1 className="bg-emerald-400 h-16 flex items-center justify-end">
             <a className="m-4 px-5 py-2.5 font-medium bg-blue-50 hover:bg-blue-100 hover:text-blue-600 text-blue-500 rounded-lg text-sm">
             🏠Homepage
