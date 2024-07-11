@@ -9,6 +9,8 @@
 
 */
 
+//<Toast />をToastを使うサイトの一番最初に書いてください
+
 import React, { useEffect, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 
